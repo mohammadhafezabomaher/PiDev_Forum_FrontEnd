@@ -12,6 +12,12 @@ import {  HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NiveauComponent } from './components/niveau/niveau.component';
 import { NivupdateComponent } from './components/nivupdate/nivupdate.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
+import { CreatetudiantComponent } from './components/createtudiant/createtudiant.component';
+import { AffichetudeComponent } from './components/affichetude/affichetude.component';
+import { EtupdateComponent } from './components/etupdate/etupdate.component';
+
 
 @NgModule({
   declarations: [
@@ -20,17 +26,23 @@ import { NivupdateComponent } from './components/nivupdate/nivupdate.component';
     SidebarComponent,
     DirectionfinanciereComponent,
     NiveauComponent,
-    NivupdateComponent
+    NivupdateComponent,
+    CreatetudiantComponent,
+    AffichetudeComponent,
+    EtupdateComponent
     
     ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot()
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

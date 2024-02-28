@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NiveauSpecialite } from 'src/app/models/niveauspecialite';
 import { HttpService } from 'src/app/services/http.service';
@@ -12,17 +12,32 @@ import { HttpService } from 'src/app/services/http.service';
 export class NivupdateComponent implements OnInit {
   editForm!: FormGroup;
   toEditColumn!: NiveauSpecialite;
+  id!:number | null;
   constructor(private httpService: HttpService, private fb: FormBuilder, private rout: ActivatedRoute) { }
   ngOnInit(): void {
     const id = this.rout.snapshot.paramMap.get('id');
     if (id) {
-    this.httpService.getNiveauSpecialiteById(+id).subscribe(niveauspecialite => this.toEditColumn = niveauspecialite);
+    this.httpService.getNiveauSpecialiteById(+id).subscribe(niveauspecialite => {this.toEditColumn = niveauspecialite;
+      console.log('Column fetched:', this.toEditColumn);
+      this.updateForm();});
+   
   }
   
     this.editForm = this.fb.group({
+      idNiveauSpecialite: [''],
       libelle: [''],
       etablissement: [''],
       departement: [''],
+    });
+  }
+
+  updateForm(): void {
+    this.editForm = this.fb.group({
+      idNiveauSpecialite: [this.toEditColumn.idNiveauSpecialite],
+      libelle: [this.toEditColumn.libelle, Validators.required],
+      etablissement: [this.toEditColumn.etablissement,Validators.required],
+      departement: [this.toEditColumn.departement, Validators.required],
+      
     });
   }
   
@@ -38,4 +53,7 @@ handelSubmitUpdate() {
   );
 }
 
+update(): void {
+  this.updateForm();
+}
 }

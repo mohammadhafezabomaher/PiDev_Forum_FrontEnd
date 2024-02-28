@@ -11,34 +11,68 @@ import { HttpService } from 'src/app/services/http.service';
 export class NiveauComponent  implements OnInit {
   constructor(private httpService:HttpService,private fb:FormBuilder){}
   ListOfNiveauSpecialites!:NiveauSpecialite[];
+  searchTerm: string = '';
+  
 
   todoForm!: FormGroup;
   show=false;
 
+  currentPage: number = 1;
+  itemsPerPage: number = 5; // Change this value based on your preference
+  totalItems: number = 0;
+
   ngOnInit(): void {
-    this.httpService.getAllNiveauSpecialites().subscribe(niveauSpecialite=>this.ListOfNiveauSpecialites=niveauSpecialite);
+    this.loadNiveauSpecialites();
+    this.initForm();
+  }
 
-    this.todoForm=this.fb.group({
-      libelle:[''],
-      etablissement:[''],
-      departement:[''],
+  loadNiveauSpecialites(): void {
+    this.httpService.getAllNiveauSpecialites().subscribe(niveauSpecialite => {
+      this.ListOfNiveauSpecialites = niveauSpecialite;
+      this.totalItems = this.ListOfNiveauSpecialites.length;
     });
   }
 
-  handelSubmit(){
-    this.httpService.createNiveauSpecialite(this.todoForm.value).subscribe();
-    this.ngOnInit();
-   }
-
-   showAddTodo(){
-    this.show=!this.show;
+  initForm(): void {
+    this.todoForm = this.fb.group({
+      libelle: [''],
+      etablissement: [''],
+      departement: [''],
+    });
   }
-  delete(id: number) {
+
+  handelSubmit(): void {
+    this.httpService.createNiveauSpecialite(this.todoForm.value).subscribe(() => {
+      this.loadNiveauSpecialites();
+    });
+  }
+
+  showAddTodo(): void {
+    this.show = !this.show;
+  }
+
+  delete(id: number): void {
     this.httpService.deleteNiveauSpecialite(id).subscribe(() => {
-      this.ngOnInit();
-      window.location.reload();
+      this.loadNiveauSpecialites();
     });
   }
- 
 
+
+
+  // Pagination methods
+  getPages(): number[] {
+    const pageCount = Math.ceil(this.totalItems / this.itemsPerPage);
+    return Array(pageCount).fill(0).map((_, index) => index + 1);
+  }
+
+  changePage(page: number): void {
+    this.currentPage = page;
+  }
+
+  search(): void {
+    // Filter the list based on the search term
+    this.ListOfNiveauSpecialites = this.ListOfNiveauSpecialites.filter(niveauSpecialite =>
+      niveauSpecialite.libelle.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 }
