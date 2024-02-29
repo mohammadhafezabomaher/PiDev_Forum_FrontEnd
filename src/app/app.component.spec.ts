@@ -2,34 +2,42 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+import { async, ComponentFixture } from '@angular/core/testing';
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+import { EnseignantComponent } from './components/enseignants/enseignant.component';
+import { EnseignantService } from './services/enseignant.service';
 
-  it(`should have as title 'piFront'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('piFront');
-  });
+describe('EnseignantService', () => {
+  let service: EnseignantService;
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(EnseignantService);
+
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
+})});
+
+describe('EnseignantsListComponent', () => {
+  let component: EnseignantComponent;
+  let fixture: ComponentFixture<EnseignantComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ EnseignantComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EnseignantComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('piFront app is running!');
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
+
