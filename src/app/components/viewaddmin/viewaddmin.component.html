@@ -1,0 +1,19 @@
+<div *ngIf="isLoading; else dataTemplate" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #dataTemplate>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{a.contact.nom}} {{a.contact.prenom}}</mat-card-title>
+        <mat-card-subtitle>{{a.contact.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <img *ngIf="a.contact.image" [src]="getAdminPhotoUrl(a)" class="i" alt="Uploaded Image">
+        <p>Admin ID: {{ a.idAdmin }}</p>
+        <p>Start Date: {{ a.dateDebut | date }}</p>
+        <p>Address: {{a.contact.adresse}}</p>
+        <p>CIN: {{a.contact.cin}}</p>
+        <p>Phone: {{a.contact.telephone}}</p>
+        <p>Birth Date: {{a.contact.dateNaissance | date}}</p>
+      </mat-card-content>
+    </mat-card>

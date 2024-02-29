@@ -1,0 +1,31 @@
+<p>forum works!</p>
+<div *ngIf="isLoading; else dataTemplate" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #dataTemplate>
+<button class="btn btn-primary" (click)="openDialog()">Ajouter un forum</button>
+<div>
+  <label>Filtrer par Organisateur :</label>
+<select [(ngModel)]="selectedName" (ngModelChange)="filterItems()">
+  <option value="">--</option>
+  <option *ngFor="let name of uniqueNames" [value]="name">{{ name }}</option>
+</select>
+</div>
+<div>
+  <input type="date" [(ngModel)]="startDate" (ngModelChange)="filterItems()">
+  <input type="date" [(ngModel)]="endDate" (ngModelChange)="filterItems()">
+</div>
+<div class="container">
+<mat-card *ngFor="let f of forums" class="example-card">
+    <mat-card-header>
+        <h2 class="tit">{{f.titre}}</h2>
+    </mat-card-header>
+    <img mat-card-image class="i" [src]="getPackPhototUrl(f)" alt="PACK">
+    <mat-card-actions>
+      <button mat-button class="btn btn-primary" (click)="openViewDialog(f.idForum)">Voir Plus</button>
+      <button mat-button class="btn btn-primary"  (click)="openEditDialog(f.idForum)">Modifier</button>
+    </mat-card-actions>
+</mat-card>
+</div>
+  </ng-template>
+  

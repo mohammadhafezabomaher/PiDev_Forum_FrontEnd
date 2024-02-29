@@ -1,0 +1,27 @@
+<p>ajouterforum works!</p>
+<form [formGroup]="forumForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Titre</mat-label>
+    <input matInput formControlName="titre" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Budget</mat-label>
+    <input matInput formControlName="budget" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+    <input matInput formControlName="description" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Organisateur</mat-label>
+    <input matInput formControlName="organisateur" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Date Debut</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateForum" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <input type="file" (change)="uploadFile($event)" required>
+<button mat-raised-button color="primary" type="submit" [disabled]="!forumForm.valid">Create Forum</button>
+</form>
