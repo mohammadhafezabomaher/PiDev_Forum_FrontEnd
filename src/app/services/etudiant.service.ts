@@ -32,4 +32,9 @@ export class EtudiantService {
   public update(id: number, etudiant: Etudiant) {
     return this.http.put<Etudiant>(this.url + 'update/' + id, etudiant);
   }
+
+  public searchEtudiantsByIdentifiant(identifiant: string): Observable<Etudiant[]> {
+    const apiUrl = `${this.url}searchByIdentifiant/${identifiant}`;
+    return this.http.get<Etudiant[]>(apiUrl);
+  }
 }

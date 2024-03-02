@@ -27,6 +27,7 @@ export class EtupdateComponent implements OnInit{
       idEtudiant: [''],
    
       faculte: [''],
+      identifiant: [''],
       
       typeEtudiant: [''],
       
@@ -39,7 +40,7 @@ updateForm(): void {
     idEtudiant: [this.toEditColumn.idEtudiant],
   
     faculte: [this.toEditColumn.faculte, Validators.required],
-    
+    identifiant: [this.toEditColumn.identifiant, Validators.required],
     typeEtudiant: [this.toEditColumn.typeEtudiant, Validators.required],
     
     

@@ -13,10 +13,11 @@ import { RouterModule } from '@angular/router';
 import { NiveauComponent } from './components/niveau/niveau.component';
 import { NivupdateComponent } from './components/nivupdate/nivupdate.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ToastrModule } from 'ngx-toastr';
+
 import { CreatetudiantComponent } from './components/createtudiant/createtudiant.component';
 import { AffichetudeComponent } from './components/affichetude/affichetude.component';
 import { EtupdateComponent } from './components/etupdate/etupdate.component';
+import { StatComponent } from './components/stat/stat.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { EtupdateComponent } from './components/etupdate/etupdate.component';
     NivupdateComponent,
     CreatetudiantComponent,
     AffichetudeComponent,
-    EtupdateComponent
+    EtupdateComponent,
+    StatComponent
     
     ],
   imports: [
@@ -41,7 +43,7 @@ import { EtupdateComponent } from './components/etupdate/etupdate.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-    ToastrModule.forRoot()
+    
   
   ],
   providers: [],

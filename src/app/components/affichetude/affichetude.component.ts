@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Etudiant } from 'src/app/models/etudiant';
 import { EtudiantService } from 'src/app/services/etudiant.service';
 
@@ -9,21 +9,28 @@ import { EtudiantService } from 'src/app/services/etudiant.service';
   styleUrls: ['./affichetude.component.css']
 })
 export class AffichetudeComponent implements OnInit {
-  constructor(private httpService: EtudiantService, private fb: FormBuilder) { }
-  ListOfEtudiant!:Etudiant[];
+  searchForm: FormGroup;
+  ListOfEtudiant!: Etudiant[];
+  filteredEtudiants!: Etudiant[];
 
   currentPage: number = 1;
-  itemsPerPage: number = 5; // Change this value based on your preference
+  itemsPerPage: number = 5;
   totalItems: number = 0;
+
+  constructor(private httpService: EtudiantService, private fb: FormBuilder) {
+    this.searchForm = this.fb.group({
+      identifiant: ['']
+    });
+  }
 
   ngOnInit(): void {
     this.loadEtudiant();
-    
   }
+
   loadEtudiant(): void {
-    this.httpService.getAllEtudiants().subscribe(etudiant => {
-      this.ListOfEtudiant = etudiant;
-      this.totalItems = this.ListOfEtudiant.length;
+    this.httpService.getAllEtudiants().subscribe(etudiants => {
+      this.ListOfEtudiant = etudiants;
+      this.applySearchFilter();
     });
   }
 
@@ -42,4 +49,21 @@ export class AffichetudeComponent implements OnInit {
     });
   }
 
+  applySearchFilter(): void {
+    const identifiant = this.searchForm.value.identifiant.toLowerCase();
+    if (identifiant) {
+      this.httpService.searchEtudiantsByIdentifiant(identifiant).subscribe(
+        filteredEtudiants => {
+          this.filteredEtudiants = filteredEtudiants;
+          this.totalItems = this.filteredEtudiants.length;
+        },
+        error => {
+          console.error("Error fetching etudiants by identifiant:", error);
+        }
+      );
+    } else {
+      this.filteredEtudiants = this.ListOfEtudiant;
+      this.totalItems = this.ListOfEtudiant.length;
+    }
+  }
 }
