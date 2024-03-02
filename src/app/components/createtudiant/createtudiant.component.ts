@@ -11,7 +11,7 @@ export class CreatetudiantComponent implements OnInit {
   createForm!: FormGroup;
   imageUrl: string = 'assets/img/logo.jpg';
   constructor(private httpService: EtudiantService, private fb: FormBuilder) { }
-.
+
   ngOnInit(): void {
     this.createForm = this.fb.group({
       
