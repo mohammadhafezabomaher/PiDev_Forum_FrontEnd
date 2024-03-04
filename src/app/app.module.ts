@@ -3,14 +3,54 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from 'src/shared/navbar/navbar.component';
+import { SidebarComponent } from 'src/shared/sidebar/sidebar.component';
+import { DirectionfinanciereComponent } from './components/directionfinanciere/directionfinanciere.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { AdddirectorComponent } from './components/adddirector/adddirector.component';
+import { UpdatedirectorComponent } from './components/updatedirector/updatedirector.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ShowdirectorComponent } from './components/showdirector/showdirector.component';
+import { AddmessageComponent } from './components/addmessage/addmessage.component';
+import { GetMessagesBySenderComponent } from './components/get-messages-by-sender/get-messages-by-sender.component';
+import { GetMessagesByResciverComponent } from './components/get-messages-by-resciver/get-messages-by-resciver.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    NavbarComponent,
+    SidebarComponent,
+    DirectionfinanciereComponent,
+    AdddirectorComponent,
+    UpdatedirectorComponent,
+    ShowdirectorComponent,
+    AddmessageComponent,
+    GetMessagesBySenderComponent,
+    GetMessagesByResciverComponent
+    
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
+    NgbModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

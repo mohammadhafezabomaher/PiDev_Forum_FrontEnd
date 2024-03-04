@@ -1,0 +1,13 @@
+<div class="direction-financiere-details">
+  <h2>Direction Financière Details</h2>
+  <p><strong>ID:</strong> {{ receivedData.idDirectionFinanciere }}</p>
+  <p><strong>Date Debut:</strong> {{ receivedData.dateDebut | date }}</p>
+  <p><strong>Budget:</strong> {{ receivedData.budget }}</p>
+  <div class="contact-details">
+    <h3>Contact Details</h3>
+    <p><strong>Nom:</strong> {{ receivedData.Contact.nom }}</p>
+    <p><strong>Prénom:</strong> {{ receivedData.Contact.prenom }}</p>
+    <p><strong>CIN:</strong> {{ receivedData.Contact.cin }}</p>
+    <p><strong>Email:</strong> {{ receivedData.Contact.email }}</p>
+  </div>
+</div>

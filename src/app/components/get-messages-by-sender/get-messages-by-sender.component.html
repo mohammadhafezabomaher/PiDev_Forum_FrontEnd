@@ -1,0 +1,11 @@
+<!-- In your component's HTML template -->
+<button (click)="openDialog()" class="btn btn-primary">New Message</button>
+<main>
+  <ol class="gradient-list">
+    <li *ngFor="let message of Meassages">
+      date :{{ message.dateSent | date }} Reciver:{{
+        message.receiverContact.email
+      }}:{{ message.message }}
+    </li>
+  </ol>
+</main>

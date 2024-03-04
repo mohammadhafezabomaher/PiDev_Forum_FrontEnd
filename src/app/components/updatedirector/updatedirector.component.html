@@ -1,0 +1,142 @@
+<div class="form-container">
+    <form [formGroup]="directorForm" (ngSubmit)="onSubmit()">
+      <div formGroupName="contact">
+        <!-- Display error messages for Contact fields -->
+        <input formControlName="nom" type="text" placeholder="Nom" />
+        <div
+          *ngIf="
+            directorForm.get('contact.nom')?.invalid &&
+            (directorForm.get('contact.nom')?.dirty ||
+              directorForm.get('contact.nom')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.nom')?.errors?.['required']">
+            Nom est requis
+          </div>
+        </div>
+        <!-- Repeat for other Contact fields -->
+        <!-- Prenom -->
+        <input formControlName="prenom" type="text" placeholder="Prenom" />
+        <div
+          *ngIf="
+            directorForm.get('contact.prenom')?.invalid &&
+            (directorForm.get('contact.prenom')?.dirty ||
+              directorForm.get('contact.prenom')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.prenom')?.errors?.['required']">
+            Prenom est requis
+          </div>
+        </div>
+        <!-- CIN -->
+        <input formControlName="cin" type="number" placeholder="CIN" />
+        <div
+          *ngIf="
+            directorForm.get('contact.cin')?.invalid &&
+            (directorForm.get('contact.cin')?.dirty ||
+              directorForm.get('contact.cin')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.cin')?.errors?.['required']">
+            CIN est requis
+          </div>
+        </div>
+        <!-- Email -->
+        <input formControlName="email" type="email" placeholder="Email" />
+        <div
+          *ngIf="
+            directorForm.get('contact.email')?.invalid &&
+            (directorForm.get('contact.email')?.dirty ||
+              directorForm.get('contact.email')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.email')?.errors?.['required']">
+            Email est requis
+          </div>
+          <div *ngIf="directorForm.get('contact.email')?.errors?.['email']">
+            Email invalide
+          </div>
+        </div>
+        <!-- Repeat for other Contact fields -->
+        <input formControlName="password" type="text" placeholder="Password" />
+        <div
+          *ngIf="
+            directorForm.get('contact.password')?.invalid &&
+            (directorForm.get('contact.password')?.dirty ||
+              directorForm.get('contact.password')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.password')?.errors?.['required']">
+            password est requis
+          </div>
+          <div *ngIf="directorForm.get('contact.password')?.errors?.['password']">
+            password invalide
+          </div>
+        </div>
+        <input
+          formControlName="dateNaissance"
+          type="date"
+          placeholder="dateNaissance"
+        />
+        <div
+          *ngIf="
+            directorForm.get('contact.dateNaissance')?.invalid &&
+            (directorForm.get('contact.dateNaissance')?.dirty ||
+              directorForm.get('contact.dateNaissance')?.touched)" class="error-message">
+          <div
+            *ngIf="directorForm.get('contact.dateNaissance')?.errors?.['required']"
+          >
+            dateNaissance est requis
+          </div>
+          <div
+            *ngIf="directorForm.get('contact.dateNaissance')?.errors?.['dateNaissance']"
+          >
+            dateNaissance invalide
+          </div>
+        </div>
+        <input formControlName="telephone" type="number" placeholder="telephone" />
+        <div
+          *ngIf="
+            directorForm.get('contact.telephone')?.invalid &&
+            (directorForm.get('contact.telephone')?.dirty ||
+              directorForm.get('contact.telephone')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.telephone')?.errors?.['required']">
+            telephone est requis
+          </div>
+          <div *ngIf="directorForm.get('contact.telephone')?.errors?.['telephone']">
+            telephone invalide
+          </div>
+        </div>
+        <input formControlName="adresse" type="adresse" placeholder="adresse" />
+        <div
+          *ngIf="
+            directorForm.get('contact.adresse')?.invalid &&
+            (directorForm.get('contact.adresse')?.dirty ||
+              directorForm.get('contact.adresse')?.touched)" class="error-message">
+          <div *ngIf="directorForm.get('contact.adresse')?.errors?.['required']">
+            adresse est requis
+          </div>
+          <div *ngIf="directorForm.get('contact.adresse')?.errors?.['adresse']">
+            adresse invalide
+          </div>
+        </div>
+      </div>
+    
+      <!-- Display error messages for other director fields -->
+    
+      <!-- Date Debut -->
+      <input formControlName="dateDebut" type="date" placeholder="Date Debut" />
+      <div
+        *ngIf="
+          directorForm.get('dateDebut')?.invalid &&
+          (directorForm.get('dateDebut')?.dirty ||
+            directorForm.get('dateDebut')?.touched)" class="error-message">
+        <div *ngIf="directorForm.get('dateDebut')?.errors?.['required']">
+          Date Debut est requis
+        </div>
+      </div>
+      <!-- Budget -->
+      <input formControlName="budget" type="number" placeholder="Budget" />
+      <div
+        *ngIf="
+          directorForm.get('budget')?.invalid &&
+          (directorForm.get('budget')?.dirty || directorForm.get('budget')?.touched)" class="error-message">
+        <div *ngIf="directorForm.get('budget')?.errors?.['required']">
+          Budget est requis
+        </div>
+      </div>
+      <!-- Repeat for other director fields -->
+    
+      <button type="submit">Submit</button>
+    </form>
+  </div>

@@ -1,0 +1,10 @@
+import { Contact } from "./Contact.model";
+
+export class DirectionFinanciere {
+  idDirectionFinanciere!: number;
+  dateDebut!: Date;
+  budget!: number;
+  Contact!: Contact;
+  constructor() {
+  }
+}

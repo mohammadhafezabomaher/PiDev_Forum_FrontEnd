@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit($event)">
+  <!-- Other form fields -->
+  <div>
+    <label for="selectedObject">Select who to send the message to:</label>
+    <select
+      id="selectedObject"
+      name="selectedObject"
+      [(ngModel)]="selectedObject"
+      (change)="onSelectObject()"
+    >
+      <option *ngFor="let object of objects" [ngValue]="object">
+        {{ object.email }}
+      </option>
+    </select>
+  </div>
+  <div class="input-container">
+    <input
+      type="text"
+      [(ngModel)]="inputMessage"
+      name="inputMessage"
+      class="input-field"
+      placeholder="Enter your message"
+    />
+  </div>
+  <p *ngIf="errbadwords">Message contains bad words. Submission prevented.</p>
+  <p *ngIf="inputmissing">
+    Input message is empty or you dont chosse to whom send. Please re-enter your
+    message.
+  </p>
+
+ 
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-info">Send Message</button>
+</form>
