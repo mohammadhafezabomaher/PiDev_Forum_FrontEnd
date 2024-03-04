@@ -5,46 +5,46 @@
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
         <a
-          href="#"
+        routerLink="/stat"
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
           <i class="fas fa-tachometer-alt fa-fw me-3"></i
-          ><span>Main dashboard</span>
+          ><span>Statistique</span>
         </a>
         <a
-          href="#"
+        routerLink="/niveauSpecialite"
           class="list-group-item list-group-item-action py-2 ripple active"
         >
           <i class="fas fa-chart-area fa-fw me-3"></i
           ><span>Niveau</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
+        <a  routerLink="/etudiants" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-lock fa-fw me-3"></i><span>Etudiant</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a
+        <a routerLink="/stat"  class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Offre</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Exposant</span>
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a
+          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Fournisseur</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-globe fa-fw me-3"></i><span>International</span></a
+          ><i class="fas fa-globe fa-fw me-3"></i><span>Financiere</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-building fa-fw me-3"></i><span>Partners</span></a
+          ><i class="fas fa-building fa-fw me-3"></i><span>Administrateur</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a
+          ><i class="fas fa-calendar fa-fw me-3"></i><span>Enseignant</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
+          ><i class="fas fa-users fa-fw me-3"></i><span>Produit</span></a
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
+          ><i class="fas fa-money-bill fa-fw me-3"></i><span>Forum</span></a
         >
       </div>
     </div>
@@ -74,25 +74,16 @@
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="25"
+          [src]="imageUrl"
+          height="40"
           alt="MDB Logo"
           loading="lazy"
         />
+        <span class="brand-text">HireFlix</span>
       </a>
+      
       <!-- Search form -->
-      <form class="d-none d-md-flex input-group w-auto my-auto">
-        <input
-          autocomplete="off"
-          type="search"
-          class="form-control rounded"
-          placeholder='Search (ctrl + "/" to focus)'
-          style="min-width: 225px"
-        />
-        <span class="input-group-text border-0"
-          ><i class="fas fa-search"></i
-        ></span>
-      </form>
+      
 
       <!-- Right links -->
       <ul class="navbar-nav ms-auto d-flex flex-row">
