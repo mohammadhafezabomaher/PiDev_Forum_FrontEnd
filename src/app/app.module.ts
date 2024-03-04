@@ -32,6 +32,10 @@ import { ForumComponent } from './components/Forum/forum/forum.component';
 import { AjouterforumComponent } from './components/Forum/ajouterforum/ajouterforum.component';
 import { ViewforumComponent } from './components/Forum/viewforum/viewforum.component';
 import { EditforumComponent } from './components/Forum/editforum/editforum.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForumfrontComponent } from './components/ForumFront/forumfront/forumfront.component';
+import { LoginComponent } from './components/Authentification/login/login.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -50,7 +54,10 @@ import { EditforumComponent } from './components/Forum/editforum/editforum.compo
     ForumComponent,
     AjouterforumComponent,
     ViewforumComponent,
-    EditforumComponent
+    EditforumComponent,
+    DashboardComponent,
+    ForumfrontComponent,
+    LoginComponent
     ],
   imports: [
     BrowserModule,
@@ -70,7 +77,8 @@ import { EditforumComponent } from './components/Forum/editforum/editforum.compo
     MatSortModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

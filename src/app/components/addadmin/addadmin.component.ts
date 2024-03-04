@@ -51,13 +51,18 @@ export class AddadminComponent {
         .subscribe({
           next: (response) => {
             console.log("Uploaded Successfully:", response);
-            // Assuming the response is the path where the file is stored,
-            // and you have a form field for 'imagePath' or similar in your adminForm
-            this.adminForm.get('contact.image')!.setValue(response);
+            let url=response.substring(35);
+            this.adminForm.get('contact.image')!.setValue(url);
           },
           error: (error) => console.error("Upload Error:", error)
         });
     }
+  }
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
+  resetForm(): void {
+    this.adminForm.reset();
   }
   
 }

@@ -1,1 +1,37 @@
-<p>editforum works!</p>
+<div class="edit-forum-container">
+    <h2>Modifier: {{ f.titre }}</h2>
+    <form [formGroup]="forumForm" (ngSubmit)="onSubmit()" class="edit-forum-form">
+        <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Titre</mat-label>
+            <input matInput formControlName="titre" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Budget</mat-label>
+            <input matInput type="number" formControlName="budget" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" required></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Organisateur</mat-label>
+            <input matInput formControlName="organisateur" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width-input">
+            <mat-label>Date Debut</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateForum" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="file-input-container">
+            <input type="file" (change)="uploadFile($event)" required>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!forumForm.valid" class="submit-button">Update Forum</button>
+    </form>
+</div>

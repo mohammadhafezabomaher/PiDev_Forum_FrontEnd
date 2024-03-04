@@ -1,4 +1,6 @@
-<p>addpack works!</p>
+<div class="h">
+    <h2>Ajouter un Pack</h2>
+</div>
 <form [formGroup]="packForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
         <mat-label>Libelle</mat-label>
@@ -8,6 +10,10 @@
         <mat-label>Prix</mat-label>
     <input matInput formControlName="prix" required>
     </mat-form-field>
+    <div class="row">
     <input type="file" (change)="uploadFile($event)" required>
+</div>
+<div class="row">
 <button mat-raised-button color="primary" type="submit" [disabled]="!packForm.valid">Create Pack</button>
+</div>
 </form>

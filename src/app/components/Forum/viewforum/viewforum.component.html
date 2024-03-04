@@ -1,1 +1,29 @@
-<p>viewforum works!</p>
+<div *ngIf="isLoading; else dataTemplate" class="spinner-container">
+  <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+</div>
+<ng-template #dataTemplate>
+  <mat-card class="forum-card">
+    <mat-card-header>
+      <mat-card-title>{{ forum.titre }}</mat-card-title>
+      <mat-card-subtitle>{{ forum.organisateur }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="forum.image" class="i" [src]="getAdminPhotoUrl(forum)" alt="Forum Image">
+    <mat-card-content>
+      <p>
+        <mat-icon>info_outline</mat-icon>
+        ID: {{ forum.idForum }}
+      </p>
+      <p>
+        <mat-icon>description</mat-icon>
+        Description: {{ forum.description }}
+      </p>
+      <p>
+        <mat-icon>event</mat-icon>
+        Date: {{ forum.dateForum | date:'longDate' }}
+      </p>
+      <p>
+        <mat-icon>account_balance_wallet</mat-icon>
+        Budget: {{ forum.budget | currency:'TND':true }}
+      </p>
+      <p>
+       

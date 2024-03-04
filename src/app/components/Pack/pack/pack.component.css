@@ -20,4 +20,10 @@
     margin: 0 auto;
     max-width: 1200px; 
   }
-  
+  #ajb{
+    margin-left: 1000px;
+  }
+  .b{
+    background-color: white;
+    border: 0;
+  }

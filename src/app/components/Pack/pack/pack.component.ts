@@ -4,6 +4,7 @@ import { PackService } from 'src/app/services/pack.service';
 import { AddpackComponent } from '../addpack/addpack.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/services/admin.service';
+import { EditpackComponent } from '../editpack/editpack.component';
 
 @Component({
   selector: 'app-pack',
@@ -22,13 +23,27 @@ export class PackComponent implements OnInit{
   }
   openDialog(): void {
     this.dialog.open(AddpackComponent, {
-     width: '800px',
-     height:'600PX', 
+     width: '600px',
+     height:'500PX', 
    });
    }
    getPackPhototUrl(pack: Pack): string {
-    // Construct the image URL based on the backend API endpoint
     return this.adminservice.getPhoto(pack.image);
-    
+  }
+  deletePack(id:any):void{
+    this.packservice.deletePack(id).subscribe({
+      next:() =>{alert("pack deleted succesfuly"),
+                    window.location.reload()
+    },
+      error:(error)=>console.error(error)
+    }
+    )
+  }
+  editPack(id:number):void{
+    this.dialog.open(EditpackComponent,{
+      width: '600px',
+     height:'500PX', 
+      data:{key:id}
+     });
   }
 }

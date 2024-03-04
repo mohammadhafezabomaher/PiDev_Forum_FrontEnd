@@ -1,19 +1,34 @@
 <div *ngIf="isLoading; else dataTemplate" class="spinner-container">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #dataTemplate>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{a.contact.nom}} {{a.contact.prenom}}</mat-card-title>
+      <mat-card-subtitle>{{a.contact.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <img  *ngIf="a.contact.image" [src]="getAdminPhotoUrl(a)" class="i" alt="Uploaded Image">
+    <mat-card-content>
+      <div class="row">
+        <div class="col-sm">
+      Admin ID: {{ a.idAdmin }}
+    </div>
+    <div class="col-sm"> Start Date: {{ a.dateDebut | date:'mediumDate' }}</div>
+      <div class="col-sm">Address: {{a.contact.adresse}}</div>
+    </div>
+    <br>
+    
+    <div class="row">
+      <div class="col-sm">
+    CIN: {{a.contact.cin}}
   </div>
-  <ng-template #dataTemplate>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>{{a.contact.nom}} {{a.contact.prenom}}</mat-card-title>
-        <mat-card-subtitle>{{a.contact.email}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <img *ngIf="a.contact.image" [src]="getAdminPhotoUrl(a)" class="i" alt="Uploaded Image">
-        <p>Admin ID: {{ a.idAdmin }}</p>
-        <p>Start Date: {{ a.dateDebut | date }}</p>
-        <p>Address: {{a.contact.adresse}}</p>
-        <p>CIN: {{a.contact.cin}}</p>
-        <p>Phone: {{a.contact.telephone}}</p>
-        <p>Birth Date: {{a.contact.dateNaissance | date}}</p>
-      </mat-card-content>
-    </mat-card>
+    <div class="col-sm">
+    Phone: {{a.contact.telephone}}
+  </div>
+    <div class="col-sm">
+    Birth Date: {{a.contact.dateNaissance | date:'mediumDate'}}
+  </div>
+    </div>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

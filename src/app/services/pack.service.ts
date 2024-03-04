@@ -26,7 +26,7 @@ export class PackService {
   }
   // Update an existing category by ID
   updatePack(pack: Pack): Observable<Pack> {
-    const url = `${this.apiUrl+"/update"}/${pack.idPack}`;
+    const url = `${this.apiUrl+"/update"}`;
     return this.http.put<Pack>(url, pack);
   }
   // Delete a category by ID

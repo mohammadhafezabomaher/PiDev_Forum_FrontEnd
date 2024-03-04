@@ -44,7 +44,8 @@ export class AjouterforumComponent implements OnInit{
         .subscribe({
           next: (response) => {
             console.log("Uploaded Successfully:", response);
-            this.forumForm.get('image')!.setValue(response);
+            let url=response.substring(35);
+            this.forumForm.get('image')!.setValue(url);
           },
           error: (error) => console.error("Upload Error:", error)
         });

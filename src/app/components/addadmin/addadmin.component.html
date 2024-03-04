@@ -1,4 +1,6 @@
-<h1>Ajouter un Admin</h1>
+<div class="h">
+<h2>Ajouter un Admin</h2>
+</div>
 <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
         <mat-label>Date Debut</mat-label>
@@ -30,7 +32,6 @@
             <mat-label>password</mat-label>
             <input matInput formControlName="password" required>
           </mat-form-field>
-          <input type="file" (change)="uploadFile($event)" required>
           <mat-form-field appearance="fill">
             <mat-label>telephone</mat-label>
             <input matInput formControlName="telephone" required>
@@ -46,10 +47,15 @@
             <mat-datepicker-toggle matSuffix [for]="dateNaissancePicker"></mat-datepicker-toggle>
             <mat-datepicker #dateNaissancePicker></mat-datepicker>
           </mat-form-field>
+          <input type="file" (change)="uploadFile($event)" required>
       <!-- Repeat for other fields within the 'contact' group -->
   
     </div>
   
-    <button mat-raised-button color="primary" type="submit" [disabled]="!adminForm.valid">Create Admin</button>
+    <div class="button-container">
+      <button mat-button class="b" (click)="resetForm()"><mat-icon>refresh</mat-icon></button>
+      <button mat-button class="b" (click)="closeDialog()"><mat-icon>clear</mat-icon></button>
+      <button mat-raised-button class="b" type="submit" [disabled]="!adminForm.valid"><mat-icon>check</mat-icon></button>
+    </div>
   </form>
   

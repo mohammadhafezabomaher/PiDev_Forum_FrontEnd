@@ -23,7 +23,7 @@ export class ForumService {
     return this.http.get<Forum>(url);
   }
   updateForum(forum: Forum): Observable<Forum> {
-    const url = `${this.apiUrl+"/update"}/${forum.idForum}`;
+    const url = `${this.apiUrl+"/update"}`;
     return this.http.put<Forum>(url, forum);
   }
   deleteForum(id: number): Observable<void> {

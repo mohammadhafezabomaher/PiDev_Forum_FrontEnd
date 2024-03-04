@@ -17,8 +17,14 @@ export class ForumComponent implements OnInit{
     isLoading=true;
     uniqueNames: string[] = [];
     selectedName: string = '';
+    selectedT: string = '';
     startDate!: string; 
     endDate!: string; 
+    nbrForum!:number;
+    nbrEleveDeja=0;
+    nbrExposantDeja=0;
+    nbrForumFini=0;
+    now = new Date()
     constructor(private forumservice:ForumService,private dialog: MatDialog,private adminservice:AdminService){}
     ngOnInit(): void {
       this.forumservice.getAllForums().subscribe((data)=>{
@@ -27,6 +33,18 @@ export class ForumComponent implements OnInit{
           const names = this.forums.map(item => item.organisateur);
           this.uniqueNames = Array.from(new Set(names));
           this.isLoading=false;
+          this.nbrForum=this.forums.length;
+          this.allForums.forEach(f => {
+            if(new Date(f.dateForum) <= this.now){
+              if (f.nbrAlumniPresent)
+              this.nbrEleveDeja=this.nbrEleveDeja+f.nbrAlumniPresent;
+              if (f.nbrElevePresent)
+              this.nbrEleveDeja=this.nbrEleveDeja+f.nbrElevePresent;
+              if (f.nbrExposantPresent)
+              this.nbrExposantDeja=this.nbrExposantDeja+f.nbrExposantPresent;
+              this.nbrForumFini++;
+            }
+          });
       });
     }
     openDialog():void{
@@ -37,26 +55,6 @@ export class ForumComponent implements OnInit{
     }
     getPackPhototUrl(forum: Forum): string {
       return this.adminservice.getPhoto(forum.image);  
-    }
-    filterItemsByName() {
-      if (this.selectedName) {
-        this.forums = this.allForums.filter(item => item.organisateur === this.selectedName);
-      } else {
-        this.forums = [...this.allForums];
-      }
-    }
-    filterByDate() {
-      let filteredItems = this.allForums;
-  
-      if (this.startDate) {
-        filteredItems = filteredItems.filter(item => new Date(item.dateForum) >= new Date(this.startDate));
-      }
-  
-      if (this.endDate) {
-        filteredItems = filteredItems.filter(item => new Date(item.dateForum) <= new Date(this.endDate));
-      }
-  
-      this.forums = filteredItems;
     }
     filterItems() {
       let filteredItems = this.allForums;
@@ -70,6 +68,22 @@ export class ForumComponent implements OnInit{
         filteredItems = filteredItems.filter(item => new Date(item.dateForum) <= new Date(this.endDate));
       }
     this.forums = filteredItems;
+    if (this.selectedT==="4"){
+    this.forums.sort((a, b) => {
+      return new Date(a.dateForum).getTime() - new Date(b.dateForum).getTime();
+    });
+    } 
+    if (this.selectedT==="3"){
+    this.forums.sort((a, b) => {
+      return new Date(b.dateForum).getTime() - new Date(a.dateForum).getTime();
+    });
+    }
+    if (this.selectedT==="1"){
+      this.forums.sort((a, b) => a.organisateur.localeCompare(b.organisateur));
+    }
+    if (this.selectedT==="2"){
+      this.forums.sort((a, b) => b.organisateur.localeCompare(a.organisateur));
+    }
     }
     openViewDialog(id:number):void{
       this.dialog.open(ViewforumComponent, {
@@ -84,6 +98,15 @@ export class ForumComponent implements OnInit{
         height:'600PX', 
         data:{key:id}
       });
+    }
+    deleteForum(id:number):void{
+      this.forumservice.deleteForum(id).subscribe({
+        next:() =>{alert("forum deleted succesfuly"),
+                      window.location.reload()
+      },
+        error:(error)=>console.error(error)
+      }
+      )
     }
     
 }

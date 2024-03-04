@@ -27,7 +27,7 @@ export class AdminService {
   }
   // Update an existing category by ID
   updateAdmin(admin: Admin): Observable<Admin> {
-    const url = `${this.apiUrl+"/update"}/${admin.idAdmin}`;
+    const url = `${this.apiUrl+"/update"}`;
     return this.http.put<Admin>(url, admin);
   }
   // Delete a category by ID
@@ -35,10 +35,6 @@ export class AdminService {
     const url = `${this.apiUrl+"/delete"}/${id}`;
     return this.http.delete<void>(url);
   }  
-
-
-
-
   getPhoto(photo: string): string{
     const photoUrl = `${this.BaseUrl}/download/${photo}`;
 

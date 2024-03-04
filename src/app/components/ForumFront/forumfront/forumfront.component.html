@@ -12,7 +12,6 @@
   Nombre des esxposant qui ont été  present dans nos forums : {{nbrExposantDeja}}
   <br>
   <br>
-<button class="btn btn-primary" id="ajb" (click)="openDialog()">Ajouter un forum</button>
 <div class="filt">
   <mat-form-field appearance="fill">
     <mat-label>Filtrer par Organisateur :</mat-label>
@@ -52,15 +51,9 @@
     </mat-card-header>
     <img mat-card-image class="i" [src]="getPackPhototUrl(f)" alt="PACK">
     <mat-card-actions>
-      <button mat-icon-button class="b" (click)="deleteForum(f.idForum)">
-        <mat-icon>delete_forever</mat-icon>
-      </button>
       <button mat-icon-button  class="b" (click)="openViewDialog(f.idForum)">
         <mat-icon>visibility</mat-icon>
       </button>
-    <button mat-icon-button  class="b" (click)="openEditDialog(f.idForum)">
-      <mat-icon>edit</mat-icon>
-    </button>
     </mat-card-actions>
 </mat-card>
 </div>

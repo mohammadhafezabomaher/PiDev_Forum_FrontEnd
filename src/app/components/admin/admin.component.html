@@ -1,37 +1,36 @@
- <button class="btn btn-primary" (click)="openDialog()">Ajouter un admin</button>
+ <button class="btn btn-primary" id="ajb" (click)="openDialog()">Ajouter un admin</button>
+ <br>
+ <br>
   <div class="container">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="idAdmin">
         <mat-header-cell *matHeaderCellDef class="mat-table-header" mat-sort-header>ID</mat-header-cell>
         <mat-cell *matCellDef="let a">{{ a.idAdmin }}</mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Nom">
+      <ng-container matColumnDef="contact.nom">
         <mat-header-cell *matHeaderCellDef class="mat-table-header" mat-sort-header>Nom</mat-header-cell>
         <mat-cell *matCellDef="let a">{{ a.contact.nom }}</mat-cell>
       </ng-container>
     
-      <ng-container matColumnDef="DateDebut">
+      <ng-container matColumnDef="dateDebut">
         <mat-header-cell *matHeaderCellDef class="mat-table-header" mat-sort-header>Date de Debut</mat-header-cell>
         <mat-cell *matCellDef="let a">{{ a.dateDebut | date }}</mat-cell>
       </ng-container>a
     
-      <ng-container matColumnDef="Email">
+      <ng-container matColumnDef="contact.email">
         <mat-header-cell *matHeaderCellDef class="mat-table-header" mat-sort-header>Email</mat-header-cell>
         <mat-cell *matCellDef="let a">{{ a.contact.email }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef class="mat-table-header"></mat-header-cell>
        <mat-cell *matCellDef="let a">
-         <!-- <button mat-icon-button class="b" (click)="openEditDialog(a)">
-            <mat-icon>edit</mat-icon>
-          </button>-->
-          <button mat-icon-button  (click)="deleteAdmin(a.idAdmin)">
+          <button mat-icon-button class="b" (click)="deleteAdmin(a.idAdmin)">
             <mat-icon>delete_forever</mat-icon>
           </button>
-          <button mat-icon-button  (click)="showAdmin(a.idAdmin)">
+          <button mat-icon-button  class="b" (click)="showAdmin(a.idAdmin)">
             <mat-icon>visibility</mat-icon>
           </button>
-        <button mat-icon-button  (click)="editAdmin(a.idAdmin)">
+        <button mat-icon-button  class="b" (click)="editAdmin(a.idAdmin)">
           <mat-icon>edit</mat-icon>
         </button>
         </mat-cell>

@@ -30,7 +30,8 @@ export class AddpackComponent implements OnInit {
         .subscribe({
           next: (response) => {
             console.log("Uploaded Successfully:", response);
-            this.packForm.get('image')!.setValue(response);
+            let url=response.substring(35);
+            this.packForm.get('image')!.setValue(url);
           },
           error: (error) => console.error("Upload Error:", error)
         });

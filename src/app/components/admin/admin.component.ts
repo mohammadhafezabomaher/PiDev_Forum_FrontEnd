@@ -15,7 +15,7 @@ import { EditadminComponent } from '../editadmin/editadmin.component';
 })
 export class AdminComponent implements OnInit{
   admins:Admin[]=[];
-  displayedColumns: string[] = ['idAdmin', 'Nom', 'DateDebut', 'Email','actions'];
+  displayedColumns: string[] = ['idAdmin', 'contact.nom', 'dateDebut', 'contact.email','actions'];
   dataSource!: MatTableDataSource<Admin>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -31,8 +31,8 @@ export class AdminComponent implements OnInit{
     }
     openDialog(): void {
      this.dialog.open(AddadminComponent, {
-      width: '800px',
-      height:'600PX', 
+      width: '700px',
+      height:'450PX', 
     });
     }
     deleteAdmin(id:any):void{
@@ -49,15 +49,15 @@ export class AdminComponent implements OnInit{
     }
     showAdmin(id:any):void{
       this.dialog.open(ViewaddminComponent, {
-        width: '800px',
-        height:'600PX', 
+        width: '700px',
+        height:'480PX', 
         data:{key:id}
       });
       }
       editAdmin(id:number):void{
         this.dialog.open(EditadminComponent,{
-          width:'800px',
-          height:'600PX', 
+          width: '700px',
+          height:'450PX', 
           data:{key:id}
          });
       }
