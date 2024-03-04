@@ -22,6 +22,10 @@ import { ShowdirectorComponent } from './components/showdirector/showdirector.co
 import { AddmessageComponent } from './components/addmessage/addmessage.component';
 import { GetMessagesBySenderComponent } from './components/get-messages-by-sender/get-messages-by-sender.component';
 import { GetMessagesByResciverComponent } from './components/get-messages-by-resciver/get-messages-by-resciver.component';
+import { CommandShowComponent } from './components/command-show/command-show.component';
+import { CommandAddComponent } from './components/command-add/command-add.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ShowForAdminComponent } from './components/show-for-admin/show-for-admin.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { GetMessagesByResciverComponent } from './components/get-messages-by-res
     ShowdirectorComponent,
     AddmessageComponent,
     GetMessagesBySenderComponent,
-    GetMessagesByResciverComponent
+    GetMessagesByResciverComponent,
+    CommandShowComponent,
+    CommandAddComponent,
+    ShowForAdminComponent
     
     ],
   imports: [
@@ -50,7 +57,8 @@ import { GetMessagesByResciverComponent } from './components/get-messages-by-res
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

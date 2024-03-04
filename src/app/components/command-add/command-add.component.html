@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit($event)">
+  <div class="form-group">
+    <label for="selectedObject">Select Director Financieres:</label>
+    <select id="selectedObject" name="selectedObject" [(ngModel)]="selectedObject" (change)="onSelectObject()" class="form-control">
+      <option *ngFor="let object of DirectionFinancieres" [ngValue]="object">{{ object }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="selectedForum">Select Forum:</label>
+    <select id="selectedForum" name="selectedForum" [(ngModel)]="selectedForum" (change)="onselectedForum()" class="form-control">
+      <option *ngFor="let object of fourms" [ngValue]="object">Forum Title: {{ object.titre }} | Date: {{ object.dateForum | date }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="etat">Select Etat:</label>
+    <select id="etat" name="etat" [(ngModel)]="etat" class="form-control">
+      <option>finished</option>
+      <option>on progress</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date">Enter Date:</label>
+    <input type="date" id="date" name="date" [(ngModel)]="date" class="form-control" placeholder="Enter your date">
+  </div>
+  <div class="form-group">
+    <label for="montant">Enter Montant:</label>
+    <input type="number" id="montant" name="montant" [(ngModel)]="montant" class="form-control" placeholder="Enter your montant">
+  </div>
+  <p class="text-danger" *ngIf="errbadwords">Message contains bad words. Submission prevented.</p>
+  <p class="text-danger" *ngIf="inputmissing">Input message is empty or recipient is not selected. Please re-enter your message.</p>
+  <button type="submit" class="btn btn-info">Send Message</button>
+</form>

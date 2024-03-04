@@ -1,0 +1,92 @@
+<p>admins works!</p>
+
+<div class="container">
+  <form class="form-inline waves-light" mdbWavesEffect>
+    <div class="md-form mt-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" />
+    </div>
+  </form>
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="dateCommande">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="mat-table-header"
+        mat-sort-header
+        >dateCommande</mat-header-cell
+      >
+
+      <mat-cell *matCellDef="let a">{{ a.dateCommande | date }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="montantTotal">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="mat-table-header"
+        mat-sort-header
+        >montantTotal</mat-header-cell
+      >
+      <mat-cell *matCellDef="let a">{{ a.montantTotal }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="etat">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="mat-table-header"
+        mat-sort-header
+        >etat</mat-header-cell
+      >
+      <mat-cell *matCellDef="let a"> {{ a.etat }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="forum titre">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="mat-table-header"
+        mat-sort-header
+        >forum titre</mat-header-cell
+      >
+      <mat-cell *matCellDef="let a">
+        {{ a.forum.titre }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Email director">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="mat-table-header"
+        mat-sort-header
+        >Email director</mat-header-cell
+      >
+      <mat-cell *matCellDef="let a">
+        {{ a.directionFinanciere.contact.email }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="mat-table-header"
+      ></mat-header-cell>
+      <mat-cell *matCellDef="let a">
+        <button mat-icon-button (click)="deleteAdmin(a.idCommande)">
+          <mat-icon>delete_forever</mat-icon></button
+        ><!--
+        <button mat-icon-button (click)="showAdmin(a)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button (click)="editAdmin(a)">
+          <mat-icon>edit</mat-icon>
+        </button>-->
+      </mat-cell>
+    </ng-container>
+    <mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      class="mat-table-header"
+    ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+<button (click)="openDialog()" class="btn btn-primary">New commande</button>
