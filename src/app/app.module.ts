@@ -26,6 +26,8 @@ import { CommandShowComponent } from './components/command-show/command-show.com
 import { CommandAddComponent } from './components/command-add/command-add.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ShowForAdminComponent } from './components/show-for-admin/show-for-admin.component';
+import { ShowCommandProuditComponent } from './components/show-command-proudit/show-command-proudit.component';
+import { AddCommandProuditComponent } from './components/add-command-proudit/add-command-proudit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ShowForAdminComponent } from './components/show-for-admin/show-for-admi
     GetMessagesByResciverComponent,
     CommandShowComponent,
     CommandAddComponent,
-    ShowForAdminComponent
+    ShowForAdminComponent,
+    ShowCommandProuditComponent,
+    AddCommandProuditComponent
     
     ],
   imports: [
