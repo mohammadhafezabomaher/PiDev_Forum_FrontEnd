@@ -12,6 +12,6 @@ export class ContactService {
   public fetchAll():Observable<Contact[]>
 
   {
-    return this.http.get<Contact[]>('http://localhost:8050/pidev/contact/getall/');
+    return this.http.get<Contact[]>('http://localhost:7020/contact/getall/');
   }
 }

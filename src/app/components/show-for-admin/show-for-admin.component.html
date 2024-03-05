@@ -67,12 +67,12 @@
       ></mat-header-cell>
       <mat-cell *matCellDef="let a">
         <button mat-icon-button (click)="deleteAdmin(a.idCommande)">
-          <mat-icon>delete_forever</mat-icon></button
-        ><!--
-        <button mat-icon-button (click)="showAdmin(a)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+        <button mat-icon-button (click)="showAdmin(a.idCommande)">
           <mat-icon>visibility</mat-icon>
         </button>
-        <button mat-icon-button (click)="editAdmin(a)">
+        <!--  <button mat-icon-button (click)="editAdmin(a)">
           <mat-icon>edit</mat-icon>
         </button>-->
       </mat-cell>

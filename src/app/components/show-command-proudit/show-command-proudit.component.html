@@ -1,1 +1,25 @@
-<p>show-command-proudit works!</p>
+<div
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <div *ngFor="let cp of CommadnsProudits" class="card" style="width: 18rem">
+    <img class="card-img-top" src="..." alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{ cp.commande?.forum?.titre }}</h5>
+      <p class="card-text">proudit: {{ cp.produit?.libelle }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Quantite:{{ cp.quantite }}</li>
+      <li class="list-group-item">
+        responsable{{ cp.commande?.directionFinanciere?.Contact?.email }}
+      </li>
+      <li class="list-group-item">{{ cp.produit?.prix }}</li>
+    </ul>
+  </div>
+</div>

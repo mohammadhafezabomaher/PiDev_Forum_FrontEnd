@@ -1,1 +1,33 @@
-<p>add-command-proudit works!</p>
+<form (ngSubmit)="onSubmit($event)">
+  <div class="form-group">
+    <label for="selectedObject">Select Command:</label>
+    <select
+      id="selectedObject"
+      name="selectedObject"
+      [(ngModel)]="selectedObject"
+      (change)="onSelectObject()"
+      class="form-control"
+    >
+      <option *ngFor="let object of commandes" [ngValue]="object">
+        {{ object.forum.titre }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="quantite">Enter quantite:</label>
+    <input
+      type="number"
+      id="quantite"
+      name="quantite"
+      [(ngModel)]="quantite"
+      class="form-control"
+      placeholder="Enter your quantite"
+    />
+  </div>
+  <p class="text-danger" *ngIf="inputmissing">
+    Input message is empty or recipient is not selected. Please re-enter your
+    message.
+  </p>
+  <button type="submit" class="btn btn-info">Confirm</button>
+</form>

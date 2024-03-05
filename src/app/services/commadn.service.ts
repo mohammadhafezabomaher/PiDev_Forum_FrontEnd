@@ -10,21 +10,21 @@ export class CommadnService {
   constructor(private http: HttpClient) { }
   public getBySender(c:number):Observable<Commande[]>
   {
-    return this.http.get<Commande[]>(`http://localhost:8050/pidev/Message/getbysender/${c}`);
+    return this.http.get<Commande[]>(`http://localhost:7020/Message/getbysender/${c}`);
   }
   public getbyresciver(c: number): Observable<Commande[]> {
-    return this.http.get<Commande[]>(`http://localhost:8050/pidev/Message/getbyresciver/${c}`);
+    return this.http.get<Commande[]>(`http://localhost:7020/Message/getbyresciver/${c}`);
   }
   public fetchAll():Observable<Commande[]>
   {
-    return this.http.get<Commande[]>("http://localhost:8050/pidev/Commande/retrieveAllCommande");
+    return this.http.get<Commande[]>("http://localhost:7020/Commande/retrieveAllCommande");
   }
   public Delete (id:number){
-    return this.http.delete<Commande>("http://localhost:8050/pidev/Commande/DeleteCommande/"+id);
+    return this.http.delete<Commande>("http://localhost:7020/Commande/DeleteCommande/"+id);
   }
 
   public add(message:Commande){
-    return this.http.post<Commande>(  'http://localhost:8050/pidev/Commande/addCommande' ,message)
+    return this.http.post<Commande>(  'http://localhost:7020/Commande/addCommande' ,message)
   }
 
 }

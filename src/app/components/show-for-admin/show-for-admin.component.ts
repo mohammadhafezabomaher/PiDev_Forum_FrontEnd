@@ -7,6 +7,8 @@ import { Commande } from 'src/app/models/Commande.model';
 import { CommadnService } from 'src/app/services/commadn.service';
 import { CommandAddComponent } from '../command-add/command-add.component';
 import { ShareddataService } from 'src/app/services/shareddata.service';
+import { CommandShowComponent } from '../command-show/command-show.component';
+import { ShowCommandProuditComponent } from '../show-command-proudit/show-command-proudit.component';
 
 @Component({
   selector: 'app-show-for-admin',
@@ -37,21 +39,21 @@ ngAfterViewInit() {
      }
      deleteAdmin(id:any):void{
        this.service.Delete(id).subscribe({
-         next:() =>{alert("director deleted succesfuly"),
+         next:() =>{alert("commande deleted succesfuly"),
                        window.location.reload()
        },
          error:(error)=>console.error(error)
        }
        )
      }     
-    //  showAdmin(DirectionFinanciere:DirectionFinanciere):void{
-    //   this.dataService.setData(DirectionFinanciere);
+     showAdmin(id:number):void{
+      this.dataService.setData(id);
 
-    //    this.dialog.open(ShowdirectorComponent, {
-    //      width: '800px',
-    //      height:'600PX', 
-    //    });
-    //    }
+       this.dialog.open(ShowCommandProuditComponent, {
+         width: '800px',
+         height:'600PX', 
+       });
+       }
       //  editAdmin(DirectionFinanciere:DirectionFinanciere):void{
       //   this.dataService.setData(DirectionFinanciere);
       //    this.dialog.open(UpdatedirectorComponent,{

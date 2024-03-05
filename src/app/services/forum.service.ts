@@ -8,7 +8,7 @@ import { Forum } from '../models/Fourm.model';
 })
 export class ForumService {
 
-  private apiUrl = 'http://localhost:8050/pidev/forum';
+  private apiUrl = 'http://localhost:7020/forum';
 
   constructor(private http: HttpClient) {}
   createForum(forum: Forum): Observable<Forum> {
