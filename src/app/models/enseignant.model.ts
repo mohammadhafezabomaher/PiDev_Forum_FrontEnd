@@ -5,5 +5,7 @@ export class Enseignant {
     contact?: string; // Add "?" to mark it as optional if needed
     entretien?: string; // Add "?" to mark it as optional if needed
     imageUrl?: FileList;
+    name?: string;
+    specialty?: string; // Add "?" to mark it as optional if needed
   }
   

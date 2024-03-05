@@ -18,9 +18,10 @@ export class EnseignantService {
   uploadFile(formData: FormData): Observable<any> {
     return this.http.post(`${this.baseUrl}/upload`, formData);
   }
-  // Define the getEnseignants() method to fetch enseignants from the API
+  //private apiUrl = 'http://localhost:3310/enseignant/retrieve-all-enseignant';
+
   getEnseignants(): Observable<Enseignant[]> {
-    return this.http.get<Enseignant[]>(`${this.baseUrl}/getEnseignants`);
+    return this.http.get<Enseignant[]>(`${this.baseUrl}/retrieve-all-enseignant`);
   }
 
 }

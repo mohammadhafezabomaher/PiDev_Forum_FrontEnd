@@ -15,18 +15,27 @@
         <thead>
           <tr>
             <th scope="col">Profile</th>
-            <th scope="col">Name</th>
+            <th scope="col">Debut Date</th>
             <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Specialty</th>
             <!-- Add more table headers as needed -->
           </tr>
         </thead>
         <tbody>
           <!-- Iterate over enseignants and generate table rows -->
           <tr *ngFor="let enseignant of enseignants">
-            <td> <img class="user_thumb" [src]="enseignant.imageUrl" alt=""> </td>
+            <td>  <img class="user_thumb"  src="../../../assets/img/avatar.png"  alt=""> 
+            </td>
             <td>{{ enseignant.dateDebut }}</td>
             <td>{{ enseignant.email }}</td>
+            <td>{{ enseignant.name }}</td>
+            <td><img class="check_status" src="../../../assets/img/avatar.png" alt=""> </td>
+
+            <td>{{ enseignant.specialty }}</td>
             <!-- Add more table cells for other enseignant properties -->
+            <td> <button class="btn_1">PDF</button> </td>
           </tr>
         </tbody>
       </table>

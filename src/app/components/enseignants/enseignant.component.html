@@ -20,12 +20,16 @@
           </div>
         </div>
         <div class="mb-3">
-          <label class="form-label" for="input-contact">Contact</label>
-          <input [(ngModel)]="enseignant.contact" class="form-control" type="text" class="form-control">
+          <label class="form-label" for="input-contact">Name</label>
+          <input [(ngModel)]="enseignant.name" class="form-control" type="text" class="form-control" name="name" id="form3Example3c">
         </div>
         <div class="mb-3">
-          <label class="form-label" for="inputAddress2">Interview</label>
-          <input type="text" [(ngModel)]="enseignant.entretien" class="form-control" id="inputAddress2" placeholder="add the interviewer's name">
+          <label class="form-label" for="inputAddress2">Specialty</label>
+          <input type="text" [(ngModel)]="enseignant.specialty" class="form-control" name="specialty" id="form3Example3c" placeholder="add the interviewer's name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="input-contact">Contact</label>
+          <input [(ngModel)]="enseignant.contact" class="form-control" type="text" class="form-control">
         </div>
         <div class="mb-3">
           <label class="form-label" for="cloudinaryUpload">Upload Image</label>

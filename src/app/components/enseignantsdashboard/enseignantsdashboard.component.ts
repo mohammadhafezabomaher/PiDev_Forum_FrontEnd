@@ -16,10 +16,16 @@ export class EnseignantsDashboardComponent implements OnInit {
     this.fetchEnseignants();
   }
 
+  getImageUrl(base64String: string): string {
+    return `data:image/jpeg;base64,${base64String}`;
+}
+
+
   fetchEnseignants(): void {
     this.enseignantService.getEnseignants().subscribe(
       (enseignants: Enseignant[]) => {
         this.enseignants = enseignants;
+        console.log('Enseignants:', this.enseignants); // Log enseignants array to console
       },
       (error: any) => {
         console.error('Failed to fetch enseignants:', error);

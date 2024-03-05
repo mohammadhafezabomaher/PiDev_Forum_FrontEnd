@@ -23,6 +23,10 @@ export class EnseignantComponent {
     this.loadCloudinaryWidget();
   }
 
+  getImageUrl(base64String: string): string {
+    return `data:image/jpeg;base64,${base64String}`;
+}
+
   loadCloudinaryWidget(): void {
     const widget = cloudinary.createUploadWidget(
       {
@@ -64,7 +68,11 @@ export class EnseignantComponent {
     // Append other form data fields
     formData.append('dateDebut', this.enseignant.dateDebut?.toString() ?? '');
     formData.append('email', this.enseignant.email ?? '');
+    formData.append('name', this.enseignant.name ?? '');
+    formData.append('specialty', this.enseignant.specialty ?? '');
     formData.append('contact', this.enseignant.contact ?? '');
+
+
   
     // Append the image file
     // Create a Blob from the data URI of the selected image URL
