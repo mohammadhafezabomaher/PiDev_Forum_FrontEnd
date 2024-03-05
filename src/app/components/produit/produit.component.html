@@ -1,0 +1,40 @@
+<div class="my-4">
+<button type="button" class="btn btn-primary" (click)="showAddTodo()">Ajouter Produit</button>
+</div>
+<div class="my-4 d-flex justify-content-center align-items-center">
+  <input type="text" [(ngModel)]="searchLibelle" placeholder="Search by libelle" class="form-control me-2">
+  <button class="btn btn-primary" (click)="searchProduitsByLibelle()">Search</button>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-4" *ngFor="let produit of listOfProduits">
+    <div class="card h-100">
+      <img   [src]="getPackPhototUrl(produit)" alt="PACK">
+      <div class="card-body">
+        <h5 class="card-title">{{produit.libelle}}</h5>
+        <p class="card-text">Stock: {{produit.stock}}</p>
+        <p class="card-text">Price: {{produit.prix}}</p>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-info btn-sm float-start me-2" (click)="modify(produit)">Modify</button>
+        <button type="button" class="btn btn-danger btn-sm float-end" (click)="delete(produit.idProduit)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center my-4">
+  <button class="btn btn-primary me-2" (click)="fetchProduits2(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+  <span class="mx-2">{{ currentPage }}</span>
+  <button class="btn btn-primary ms-2" (click)="fetchProduits2(currentPage + 1)">Next</button>
+</div>
+
+
+
+
+
+
+  
+  
+  
+  

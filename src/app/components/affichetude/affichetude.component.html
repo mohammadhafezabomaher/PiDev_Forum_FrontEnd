@@ -1,0 +1,51 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <div class="mb-3" [formGroup]="searchForm">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="identifiant" class="form-label">Search by Identifiant</label>
+          <input type="text" class="form-control" id="identifiant" formControlName="identifiant" (input)="applySearchFilter()">
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">identifiant</th>
+            <th scope="col">faculte</th>
+            <th scope="col">type</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="filteredEtudiants">
+            <tr *ngFor="let etudiant of filteredEtudiants | slice:((currentPage - 1) * itemsPerPage):currentPage * itemsPerPage">
+              <th scope="row">{{etudiant.idEtudiant}}</th>
+              <td>{{etudiant.identifiant}}</td>
+              <td>{{etudiant.faculte}}</td>
+              <td>{{etudiant.typeEtudiant}}</td>
+              <td><button type="button" class="btn btn-danger" (click)="delete(etudiant.idEtudiant)" onClick="window.location.reload();">Delete</button></td>
+              <td><button type="button" class="btn btn-primary" [routerLink]="'/etudiants/update/' + etudiant.idEtudiant">Update</button></td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <ul class="pagination">
+          <li class="page-item" *ngFor="let page of getPages()">
+            <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

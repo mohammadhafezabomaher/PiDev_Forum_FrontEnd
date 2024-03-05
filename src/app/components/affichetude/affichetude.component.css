@@ -1,0 +1,26 @@
+
+
+.custom-input {
+    width: 190px; /* Adjust the width as per your preference */
+}
+
+.custom-toast {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px; /* Adjust the width as needed */
+  }
+  
+  .content {
+    flex: 1;
+    margin-left: 10px; /* Adjust the margin as needed */
+  }
+  

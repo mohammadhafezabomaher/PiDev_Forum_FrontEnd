@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div class="container">
+    <app-sidebar></app-sidebar>
+    <div class="content">
+  <div class="mb-3">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<body>
+  <main id="main" class="main">
+    <form [formGroup]="editForm" (ngSubmit)="handelSubmitUpdate()">
+      <span hidden>
+      <div class="col-12">
+        <label for="inputName4" class="form-label">idNiveauSpecialite</label>
+        <input type="text" class="form-control" id="inputName4" formControlName="idNiveauSpecialite">
+      </div>
+    </span>
+      <div class="col-12">
+        <label for="inputName4" class="form-label">libelle</label>
+        <input type="text" class="form-control" id="inputName4" formControlName="libelle">
+      </div>
+      <div class="col-12">
+        <label for="inputSynonyme4" class="form-label">etablissement</label>
+        <input type="text" class="form-control" id="inputSynonyme4" formControlName="etablissement">
+      </div>
+      <div class="col-12">
+        <label for="inputType4" class="form-label">departement</label>
+        <input type="text" class="form-control" id="inputType4" formControlName="departement">
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </main>
+
+</body>
+</div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+<div class="mb-3">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <label for="search" class="form-label">Search by Libelle</label>
+  <input type="text" id="search" class="form-control form-control-sm custom-input" [(ngModel)]="searchTerm">
+</div>
+<button type="button" class="btn btn-secondary" (click)="search()">Search</button><table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Libelle</th>
+        <th scope="col">Etablissement</th>
+        <th scope="col">Departement</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let niveauSpecialite of ListOfNiveauSpecialites.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+        <th scope="row">{{niveauSpecialite.idNiveauSpecialite}}</th>
+        <td>{{niveauSpecialite.libelle}}</td>
+        <td>{{niveauSpecialite.etablissement}}</td>
+        <td>{{niveauSpecialite.departement}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="delete(niveauSpecialite.idNiveauSpecialite)" onClick="window.location.reload();">Delete</button></td>
+        <td><button type="button" class="btn btn-primary" [routerLink]="'/niveauSpecialite/update/' + niveauSpecialite.idNiveauSpecialite"  >Update</button></td>
+       
+
+        
+      </tr>
+     
+     
+    </tbody>
+  </table>
+  <div class="pagination">
+    <ul class="pagination">
+        <li class="page-item" *ngFor="let page of getPages()">
+            <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+        </li>
+    </ul>
+</div>
+  
+  <button (click)="showAddTodo()" class="btn btn-primary">Ajouter Niveau et specialite</button>
+  <br>
+  <br>
+  
+  <div *ngIf="show" class="form-container">
+    <form [formGroup]="todoForm" (ngSubmit)="handelSubmit()">
+        <div class="text-danger" *ngIf="todoForm.invalid && (todoForm.dirty || todoForm.touched)">
+            All fields must be filled in.
+        </div>
+        <div class="mb-3">
+            <label for="libelle" class="form-label">Libelle</label>
+            <input type="text" id="libelle" class="form-control form-control-sm custom-input" formControlName="libelle" required>
+            <div *ngIf="todoForm.get('libelle')?.hasError('required') && (todoForm.get('libelle')?.dirty || todoForm.get('libelle')?.touched)" class="text-danger">
+                Libelle is required
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="etablissement" class="form-label">Etablissement</label>
+            <input type="text" id="etablissement" class="form-control form-control-sm custom-input" formControlName="etablissement" required>
+            <div *ngIf="todoForm.get('etablissement')?.hasError('required') && (todoForm.get('etablissement')?.dirty || todoForm.get('etablissement')?.touched)" class="text-danger">
+                Etablissement is required
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="departement" class="form-label">Departement</label>
+            <input type="text" id="departement" class="form-control form-control-sm custom-input" formControlName="departement" required>
+            <div *ngIf="todoForm.get('departement')?.hasError('required') && (todoForm.get('departement')?.dirty || todoForm.get('departement')?.touched)" class="text-danger">
+                Departement is required
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">Ajouter</button>
+    </form>
+</div>
+</div>
+</div>
+
+
+
+
+
+

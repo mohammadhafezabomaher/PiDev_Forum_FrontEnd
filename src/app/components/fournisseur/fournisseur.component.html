@@ -1,0 +1,37 @@
+<div class="container">
+  <h2 style="color: #007bff; font-size: 24px; font-weight: bold; text-align: center;">List des Fournisseurs</h2>
+
+
+  <!-- Display list of fournisseurs -->
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>NOM</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Type de Fournisseur</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fournisseur of listOfFournisseur">
+        <td>{{ fournisseur.idFournisseur }}</td>
+        <td>{{ fournisseur.contact?.nom }}</td>
+        <td>{{ fournisseur.contact?.email }}</td>
+        <td>{{ fournisseur.contact?.password }}</td>
+        <td>{{ fournisseur.typeFournisseur }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="delete(fournisseur.idFournisseur)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="statistics">
+    <h2 style="color: #007bff; font-size: 24px; font-weight: bold; text-align: center;">Statistiques sur les types des fournisseurs</h2>
+    <canvas id="fournisseurChart" width="400" height="400"></canvas>
+  </div>
+</div>
+
+
+  
