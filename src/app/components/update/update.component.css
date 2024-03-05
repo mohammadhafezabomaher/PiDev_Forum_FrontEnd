@@ -1,0 +1,65 @@
+/* Style pour le titre */
+mat-dialog-title {
+    background-color: #f0f0f0; /* Couleur de fond */
+    padding: 10px; /* Ajoute un peu d'espace autour du titre */
+    border-bottom: 2px solid #ccc; /* Bordure en bas */
+  }
+  
+  /* Espacement entre les éléments du formulaire */
+  mat-form-field {
+    margin-bottom: 15px; /* Ajoute une marge en bas */
+  }
+  
+  /* Style pour les boutons */
+  mat-dialog-actions button {
+    margin-right: 10px; /* Ajoute un espacement entre les boutons */
+  }
+  
+  /* Style pour les champs de formulaire */
+  .mat-input-element {
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 8px; /* Ajoute de l'espace à l'intérieur du champ */
+  }
+  
+  /* Style pour le bouton Modifier */
+  mat-dialog-actions button[type="submit"] {
+    background-color: #007bff; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 8px 20px; /* Ajoute de l'espace autour du texte */
+    cursor: pointer; /* Curseur pointer */
+  }
+  
+  mat-dialog-actions button[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  /* Style pour le bouton Annuler */
+.cancel-button {
+    background-color: #ccc; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 8px 20px; /* Ajoute de l'espace autour du texte */
+    cursor: pointer; /* Curseur pointer */
+  }
+  
+  .cancel-button:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+  }
+  
+  /* Style pour le bouton Modifier */
+  .submit-button {
+    background-color: #007bff; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 8px 20px; /* Ajoute de l'espace autour du texte */
+    cursor: pointer; /* Curseur pointer */
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  

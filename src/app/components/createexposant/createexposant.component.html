@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <main id="main" class="main">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Register</h5>
+        <form [formGroup]="createForm" (ngSubmit)="handelSubmit()">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="inputsiteOfficiel4" class="form-label">Site Officiel</label>
+              <input type="text" class="form-control" id="inputsiteOfficiel4" formControlName="siteOfficiel"
+                placeholder="Entrez le site officiel">
+                <div *ngIf="createForm.get('siteOfficiel')?.invalid && (createForm.get('siteOfficiel')?.dirty || createForm.get('siteOfficiel')?.touched || submitted)" class="alert alert-danger">siteOfficiel requis</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="inputpack4" class="form-label">Pack</label>
+              <input type="text" class="form-control" id="inputpack4" formControlName="pack"
+                placeholder="Entrez le pack">
+                <div *ngIf="createForm.get('pack')?.invalid && (createForm.get('pack')?.dirty || createForm.get('pack')?.touched || submitted)" class="alert alert-danger">pack requis</div>
+
+            </div>
+          </div>
+          <!-- Contact Section -->
+          <div formGroupName="contact">
+            <div class="row">
+              <div class="col-md-12">
+                <label for="inputNom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="inputNom" formControlName="nom" placeholder="Entrez votre nom">
+                <div *ngIf="createForm.get('nom')?.invalid && (createForm.get('nom')?.dirty || createForm.get('nom')?.touched || submitted)" class="alert alert-danger">nom requis</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" formControlName="email"
+                  placeholder="Entrez votre email">
+                  <div *ngIf="createForm.get('email')?.invalid && (createForm.get('email')?.dirty || createForm.get('email')?.touched || submitted)" class="alert alert-danger">email requis</div>
+
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword" formControlName="password"
+                  placeholder="Entrez votre mot de passe">
+                  <div *ngIf="createForm.get('password')?.invalid && (createForm.get('password')?.dirty || createForm.get('password')?.touched || submitted)" class="alert alert-danger">password requis</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="inputTelephone" class="form-label">Téléphone</label>
+                <input type="text" class="form-control" id="inputTelephone" formControlName="telephone"
+                  placeholder="Entrez votre numéro de téléphone" >
+                  <div *ngIf="createForm.get('telephone')?.invalid && (createForm.get('telephone')?.dirty || createForm.get('telephone')?.touched || submitted)" class="alert alert-danger">telephone requis</div>
+
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="inputAdresse" class="form-label">Adresse</label>
+                <textarea class="form-control" id="inputAdresse" formControlName="adresse"
+                  placeholder="Entrez votre adresse"></textarea>
+                  <div *ngIf="createForm.get('adresse')?.invalid && (createForm.get('adresse')?.dirty || createForm.get('adresse')?.touched || submitted)" class="alert alert-danger">adresse requis</div>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Contact Section -->
+          <br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

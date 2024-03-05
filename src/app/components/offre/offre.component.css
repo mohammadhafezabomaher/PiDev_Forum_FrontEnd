@@ -1,0 +1,186 @@
+/* Styles pour la barre de recherche */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styles pour les cartes d'offres */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-bottom: 20px; /* Ajout d'une marge en bas pour éviter le chevauchement */
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  margin-right: 5px;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-left: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Réduction de la largeur du sidebar */
+.col-md-4 {
+  max-width: calc(25% - 10px); /* Réduisez la largeur du sidebar à 25% de la largeur totale avec une marge de 10px */
+}
+
+.center-snackbar {
+  margin-top: 50%; /* Vous pouvez ajuster cette valeur selon vos besoins */
+}
+
+/* Nouveau style pour le contenu principal */
+.col-md-8 {
+  flex-grow: 1; /* Faites en sorte que le contenu principal occupe tout l'espace disponible */
+}
+
+.row {
+  display: flex; /* Utilisez Flexbox pour aligner les éléments */
+}
+
+/* Ajustement du positionnement du sidebar */
+.col-md-4 {
+  flex-shrink: 0; /* Empêchez le sidebar de rétrécir */
+}
+/* Styles pour la barre de recherche */
+.search-container {
+  margin-bottom: 20px;
+}
+
+
+/* Styles pour le sélecteur de type */
+/* Styles pour le conteneur du sélecteur */
+.select-container {
+  position: relative;
+  width: 200px; /* ajustez la largeur selon vos besoins */
+}
+
+/* Styles pour le sélecteur lui-même */
+.select-dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none; /* Masquer l'apparence par défaut */
+  cursor: pointer;
+}
+
+.select-dropdown:focus {
+  outline: none;
+  border-color: #007bff; /* Couleur de la bordure lorsqu'il est en focus */
+}
+
+/* Styles pour la flèche */
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent; /* Flèche vers le bas */
+  border-right: 5px solid transparent;
+  border-top: 5px solid #555; /* Couleur de la flèche */
+}
+
+/* Styles pour les options du sélecteur */
+.select-options {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: calc(100% - 2px);
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+/* Afficher les options lorsqu'elles sont actives */
+.select-options.active {
+  display: block;
+}
+
+/* Styles pour chaque option */
+.select-option {
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.select-option:hover {
+  background-color: #f0f0f0; /* Couleur de fond au survol */
+}
+.action-container {
+  display: flex;
+  align-items: center; /* Aligner verticalement les éléments */
+  margin-bottom: 20px; /* Marge en bas pour l'espace */
+}
+.btn-primary {
+  margin-right: 10px; /* Marge à droite pour l'espace entre le bouton et le sélecteur */
+}
+.statistics {
+  text-align: center;
+}
+
+.statistics h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style pour le graphique */
+#offreChart {
+  width: 100%;
+  max-width: 400px; /* ajustez la largeur maximale selon vos besoins */
+  margin: 0 auto; /* centrer le graphique horizontalement */
+}
+.statistics {
+  margin-top: 20px; /* Ajoute un espacement en haut du graphique */
+}
+
+#offreChart {
+  border-radius: 10px; /* Arrondit les coins du graphique */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre au graphique */
+}
+.card-body img {
+  max-width: 100%; /* Adjusts the image width to fit its container */
+  max-height: 200px; /* Adjusts the maximum height of the image */
+  width: auto; /* Allows the image to adjust its width proportionally */
+}
