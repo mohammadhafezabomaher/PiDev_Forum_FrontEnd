@@ -1,0 +1,62 @@
+<div class="container">
+  <!-- Champ de recherche -->
+  <input type="text" [(ngModel)]="searchTitle" (input)="onSearchChange()" placeholder="Rechercher par titre..." class="search-input" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Tableau pour afficher les données des exposants -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Site Officiel</th>
+        <th scope="col">Pack</th>
+        <th scope="col">nom</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+        <th scope="col">telephone</th>
+        <th scope="col">adresse</th>
+        <th scope="col">Actions</th>
+        <!-- Ajoutez d'autres en-têtes de colonne si nécessaire -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Utilisez *ngFor pour parcourir les exposants filtrés -->
+      <tr *ngFor="let exposant of filteredExposants .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+        <!-- Afficher les données de chaque exposant dans les cellules du tableau -->
+        <td>{{ exposant.idExposant }}</td>
+        <td>{{ exposant.siteOfficiel }}</td>
+        <td>{{ exposant.pack }}</td>
+        <td>{{ exposant.contact?.nom }}</td>
+        <td>{{ exposant.contact?.password }}</td>
+        <td>{{ exposant.contact?.email }}</td>
+        <td>{{ exposant.contact?.telephone }}</td>
+        <td>{{ exposant.contact?.adresse }}</td>
+
+
+
+
+        <!-- Ajoutez d'autres cellules si nécessaire -->
+        <td >
+
+          <!-- Bouton de modification pour chaque exposant -->
+         <!--  <button type="button" class="btn btn-primary mr-2" (click)="modify(exposant)">
+            <i class="fas fa-edit"></i> 
+          </button> -->
+          <button type="button" class="btn btn-danger mr-2" (click)="DeleteExposant(exposant.idExposant)">
+            
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination-container">
+  <div class="pagination">
+    <ul class="pagination">
+        <li class="page-item" *ngFor="let page of getPages()">
+            <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+        </li>
+    </ul>
+  </div>
+</div>
+</div>

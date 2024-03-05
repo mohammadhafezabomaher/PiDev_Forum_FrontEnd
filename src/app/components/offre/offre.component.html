@@ -1,0 +1,76 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votre titre</title>
+  <!-- Inclure Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<!-- Champ de recherche avec validation -->
+<input type="text" [(ngModel)]="searchTitle" class="form-control mb-3" placeholder="Rechercher par titre..." (keyup)="onSearchChange()" required>
+<div class="action-container">
+  <!-- Bouton d'ajout d'offre -->
+  <button (click)="showaddOffre()" class="btn btn-primary">Ajouter Offre</button>
+
+  
+  <!-- Conteneur pour le sélecteur de type -->
+  <div class="select-container">
+    <select [(ngModel)]="selectedType" (change)="filterByType(selectedType)" class="select-dropdown">
+      <option value="">Tous les types</option>
+      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+    </select>
+    <div class="select-arrow"></div> <!-- Flèche stylisée -->
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="message-container" *ngIf="showDeleteMessage">
+  <p>{{ deleteMessage }}</p>
+</div>
+<!-- Affichage des offres filtrées -->
+<!-- Affichage des offres filtrées -->
+<!-- Affichage des offres filtrées -->
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let Offre of filteredOffres.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+    <div class="card my-3">
+      <div class="card-body">
+        <img   [src]="getPackPhototUrl(Offre)" alt="PACK">
+
+        <h5 class="card-title mb-2">{{Offre.titre}}</h5>
+        <p class="card-text mb-3">{{Offre.description}}</p>
+        <p class="card-text"><strong>Date de début:</strong> {{ Offre.dateDebut | date: 'dd/MM/yyyy' }}</p>
+        <p class="card-text"><strong>Date de fin:</strong> {{ Offre.dateFin | date: 'dd/MM/yyyy' }}</p>
+        <p class="card-text"><strong>Type d'offre:</strong> {{Offre.typeOffre}}</p>
+        
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger mr-2" (click)="DeleteOffre(Offre.idOffre)">
+            
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button type="button" class="btn btn-primary mr-2" (click)="modify(Offre)">
+            <i class="fas fa-edit"></i>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center align-items-center my-4">
+  <button class="btn btn-primary me-2" (click)="fetchOffres2(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+  <span class="mx-2">{{ currentPage }}</span>
+  <button class="btn btn-primary ms-2" (click)="fetchOffres2(currentPage + 1)">Next</button>
+</div>
+
+<div class="statistics">
+  <h2>Statistiques sur les types d'offres</h2>
+  <canvas id="offreChart" width="400" height="400"></canvas>
+</div>
+
+
+

@@ -1,0 +1,42 @@
+<!-- Formulaire d'ajout d'offre avec validation -->
+<div *ngIf="show" class="form-container">
+    <form [formGroup]="offreForm" (ngSubmit)="handelSubmit()">
+      <div class="mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input type="text" id="titre" class="form-control form-control-sm custom-input" formControlName="titre">
+        <div *ngIf="offreForm.get('titre')?.invalid && (offreForm.get('titre')?.dirty || offreForm.get('titre')?.touched || submitted)" class="alert alert-danger">Titre requis</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" id="description" class="form-control form-control-sm custom-input" formControlName="description">
+        <div *ngIf="offreForm.get('description')?.invalid && (offreForm.get('description')?.dirty || offreForm.get('description')?.touched || submitted)" class="alert alert-danger">Description requise</div>
+      </div>
+      <div class="mb-3">
+        <label for="dateDebut" class="form-label">Date de début</label>
+        <input matInput [matDatepicker]="picker" placeholder="Date de début" formControlName="dateDebut" class="form-control form-control-sm custom-input">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <div *ngIf="offreForm.get('dateDebut')?.invalid && (offreForm.get('dateDebut')?.dirty || offreForm.get('dateDebut')?.touched || submitted)" class="alert alert-danger">Date de début requise</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="dateFin" class="form-label">Date de fin</label>
+        <input matInput [matDatepicker]="picker2" placeholder="Date de fin" formControlName="dateFin" class="form-control form-control-sm custom-input">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <div *ngIf="offreForm.get('dateFin')?.invalid && (offreForm.get('dateFin')?.dirty || offreForm.get('dateFin')?.touched || submitted)" class="alert alert-danger">Date de fin requise</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="typeOffre" class="form-label">Type d'offre</label>
+        <input type="typeOffre" id="typeOffre" class="form-control form-control-sm custom-input" formControlName="typeOffre">
+        <div *ngIf="offreForm.get('typeOffre')?.invalid && (offreForm.get('typeOffre')?.dirty || offreForm.get('typeOffre')?.touched || submitted)" class="alert alert-danger">Type d'offre requis</div>
+      </div>
+      <input type="file" (change)="uploadFile($event)" required>
+  <br>
+  <br>
+      <!-- Bouton de soumission -->
+      <button type="submit" class="btn btn-primary" >Ajouter</button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+    </form>
+</div>
