@@ -1,0 +1,28 @@
+<div *ngIf="isLoading; else dataTemplate" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #dataTemplate>
+<button class="btn btn-primary" id="ajb" (click)="openDialog()">Ajouter un pack</button>
+<div class="container">
+<mat-card *ngFor="let p of packs" class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ p.libelle }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image class="i" [src]="getPackPhototUrl(p)" alt="PACK">
+      <mat-card-content>
+        <p>
+         Prix:{{ p.prix }}DT
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button class="b" (click)="deletePack(p.idPack)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      <button mat-icon-button  class="b" (click)="editPack(p.idPack)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      </mat-card-actions>
+</mat-card>
+</div>
+</ng-template>

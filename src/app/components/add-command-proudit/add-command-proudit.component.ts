@@ -49,8 +49,6 @@ export class AddCommandProuditComponent {
       return;
     }
 
-    this.Produit=new Produit();
-    this.Produit.idProduit=1;
 
 this.commandproudit = new CommandeProduit();
 this.commandproudit.produit = this.Produit;

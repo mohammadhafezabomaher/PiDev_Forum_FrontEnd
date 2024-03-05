@@ -1,0 +1,59 @@
+
+<div *ngIf="isLoading; else dataTemplate" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #dataTemplate>
+<button class="btn btn-primary" id="ajb" (click)="openDialog()">Ajouter un forum</button>
+<div class="filt">
+  <mat-form-field appearance="fill">
+    <mat-label>Filtrer par Organisateur :</mat-label>
+    <mat-select [(value)]="selectedName" (selectionChange)="filterItems()">
+      <mat-option value="">--</mat-option>
+      <mat-option *ngFor="let name of uniqueNames" [value]="name">{{ name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Date de début</mat-label>
+    <input matInput [matDatepicker]="picker1" [(ngModel)]="startDate" (ngModelChange)="filterItems()">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Date de fin</mat-label>
+    <input matInput [matDatepicker]="picker2" [(ngModel)]="endDate" (ngModelChange)="filterItems()">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Trier Par :</mat-label>
+    <mat-select [(value)]="selectedT" (selectionChange)="filterItems()">
+      <mat-option value="">--</mat-option>
+      <mat-option value="2">Par Organisateur ↑</mat-option>
+      <mat-option value="1">Par Organisateur ↓</mat-option>
+      <mat-option value="4">Par Date ↑</mat-option>
+      <mat-option value="3">Par Date ↓</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="container">
+<mat-card *ngFor="let f of forums" class="example-card">
+    <mat-card-header>
+        <h2 class="tit">{{f.titre}}</h2>
+    </mat-card-header>
+    <img mat-card-image class="i" [src]="getPackPhototUrl(f)" alt="PACK">
+    <mat-card-actions>
+      <button mat-icon-button class="b" (click)="deleteForum(f.idForum)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+      <button mat-icon-button  class="b" (click)="openViewDialog(f.idForum)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+    <button mat-icon-button  class="b" (click)="openEditDialog(f.idForum)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    </mat-card-actions>
+</mat-card>
+</div>
+  </ng-template>
+  

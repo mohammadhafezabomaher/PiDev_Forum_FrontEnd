@@ -1,0 +1,29 @@
+.i{
+    width: 270px;
+    height: 270px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+  }
+  
+  .example-card {
+    max-width: 30%; 
+    flex: 0 0 30%; 
+    margin: 15px; 
+    box-sizing: border-box; 
+  }
+  
+
+  .container {
+    margin: 0 auto;
+    max-width: 1200px; 
+  }
+  #ajb{
+    margin-left: 1000px;
+  }
+  .b{
+    background-color: white;
+    border: 0;
+  }

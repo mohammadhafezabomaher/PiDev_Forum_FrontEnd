@@ -1,0 +1,15 @@
+<div class="h">
+    <h2>Modifier {{p.libelle}}</h2>
+</div>
+<form [formGroup]="packForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Libelle</mat-label>
+    <input matInput formControlName="libelle" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Prix</mat-label>
+    <input matInput formControlName="prix" required>
+    </mat-form-field>
+    <input type="file" (change)="uploadFile($event)" required>
+<button mat-raised-button class="btn btn-info" type="submit" [disabled]="!packForm.valid">Modifier Pack</button>
+</form>

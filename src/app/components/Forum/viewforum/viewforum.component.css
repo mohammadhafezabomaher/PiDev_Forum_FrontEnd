@@ -1,0 +1,12 @@
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  .i{
+    width: 300px;
+    height: 300px;
+    margin-left: 25%;
+    border-radius: 5%;
+  }

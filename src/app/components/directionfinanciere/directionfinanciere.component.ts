@@ -86,6 +86,20 @@ ngAfterViewInit() {
       }
     });}
   
+    handleChange(event: Event) {
+      if ((event.target as HTMLInputElement).value.trim() === "") {
+  this.dataSource = new MatTableDataSource<DirectionFinanciere>(this.directors);
+} else {
+  this.dataSource = new MatTableDataSource<DirectionFinanciere>(
+    this.directors.filter(item =>
+      item.contact.adresse.toLowerCase().includes((event.target as HTMLInputElement).value.toLowerCase()) ||
+      item.contact.email.toLowerCase().includes((event.target as HTMLInputElement).value.toLowerCase()) ||
+      item.contact.nom.toLowerCase().includes((event.target as HTMLInputElement).value.toLowerCase()) ||
+      item.contact.prenom.toLowerCase().includes((event.target as HTMLInputElement).value.toLowerCase()) ||
+      item.budget.toString().toLowerCase().includes((event.target as HTMLInputElement).value.toLowerCase())
+    )
+  );
+      
+    }
   
-  
-}
+}}

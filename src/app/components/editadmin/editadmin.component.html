@@ -1,0 +1,61 @@
+<div class="h">
+    <h2>Ajouter un Admin</h2>
+    </div>
+    <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Date Debut</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateDebut" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
+      
+        <!-- Nested form group for 'contact' -->
+        <div formGroupName="contact">
+          <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="nom" required>
+          </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Prenom</mat-label>
+              <input matInput formControlName="prenom" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>cin</mat-label>
+                <input matInput formControlName="cin" type="number" required>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>email</mat-label>
+                <input matInput formControlName="email" required>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>password</mat-label>
+                <input matInput formControlName="password" required>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>telephone</mat-label>
+                <input matInput formControlName="telephone" required>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>adresse</mat-label>
+                <input matInput formControlName="adresse" required>
+              </mat-form-field>
+              
+              <mat-form-field appearance="fill">
+                <mat-label>Date Naissance</mat-label>
+                <input matInput [matDatepicker]="dateNaissancePicker" formControlName="dateNaissance" required>
+                <mat-datepicker-toggle matSuffix [for]="dateNaissancePicker"></mat-datepicker-toggle>
+                <mat-datepicker #dateNaissancePicker></mat-datepicker>
+              </mat-form-field>
+              <input type="file" (change)="uploadFile($event)" required>
+          <!-- Repeat for other fields within the 'contact' group -->
+      
+        </div>
+      
+        <div class="button-container">
+          <button mat-button class="b" (click)="resetForm()"><mat-icon>refresh</mat-icon></button>
+          <button mat-button class="b" (click)="closeDialog()"><mat-icon>clear</mat-icon></button>
+          <button mat-raised-button class="b" type="submit" [disabled]="!adminForm.valid"><mat-icon>check</mat-icon></button>
+        </div>
+      </form>
+      

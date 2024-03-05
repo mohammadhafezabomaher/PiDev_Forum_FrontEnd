@@ -13,7 +13,7 @@ export class ShowdirectorComponent {
   receivedData !: DirectionFinanciere;
   constructor(private dataService: ShareddataService) {
     this.receivedData = this.dataService.getData();
-    this.dir = this.receivedData.Contact;
+    this.dir = this.receivedData.contact;
   }
 
 
