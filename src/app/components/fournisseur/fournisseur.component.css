@@ -1,0 +1,26 @@
+.statistics {
+    text-align: center;
+  }
+  
+  .statistics h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the chart */
+  #fournisseurChart {
+    width: 100%; /* Set the width of the chart to 100% of its container */
+    max-width: 400px; /* Set the maximum width of the chart */
+    height: auto; /* Allow the height to adjust automatically */
+    margin: 0 auto; /* Center the chart horizontally */
+  }
+  
+  .statistics {
+    margin-top: 20px; /* Add top margin to the chart */
+  }
+  
+  #fournisseurChart {
+    border-radius: 10px; /* Round the corners of the chart */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow to the chart */
+  }
+  

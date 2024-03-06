@@ -1,0 +1,47 @@
+<div class="container">
+  <h2 class="mb-4">Register Supplier</h2>
+
+  <form [formGroup]="createForm" (ngSubmit)="handelSubmit()">
+    <!-- Type de Fournisseur Dropdown -->
+    <div class="form-group">
+      <label for="typeFournisseur">Type de Fournisseur</label>
+      <select class="form-control" id="typeFournisseur" formControlName="typeFournisseur">
+        <option *ngFor="let type of typeFournisseurOptions" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <!-- Contact Section -->
+    <div formGroupName="contact">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" formControlName="nom" placeholder="Entrez votre nom">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Entrez votre email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="telephone">Téléphone</label>
+          <input type="text" class="form-control" id="telephone" formControlName="telephone" placeholder="Entrez votre numéro de téléphone">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Entrez votre mot de passe">
+      </div>
+
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <textarea class="form-control" id="adresse" formControlName="adresse" placeholder="Entrez votre adresse"></textarea>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="!createForm.valid">Submit</button>
+  </form>
+</div>
+
+  
